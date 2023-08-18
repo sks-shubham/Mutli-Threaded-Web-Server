@@ -1,0 +1,117 @@
+==109085== Memcheck, a memory error detector
+==109085== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==109085== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==109085== Command: ./server 8080
+==109085== Parent PID: 109084
+==109085== 
+==109085== Thread 3:
+==109085== Invalid read of size 8
+==109085==    at 0x49B3EAB: std::__cxx11::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >::basic_stringstream(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==109085==    by 0x10DE97: split(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10E02B: HTTP_Request::HTTP_Request(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10E20A: handle_request(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10BE5D: clientProcessing(void*) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x4B4CB42: start_thread (pthread_create.c:442)
+==109085==    by 0x4BDDBB3: clone (clone.S:100)
+==109085==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==109085== 
+==109085== 
+==109085== Process terminating with default action of signal 11 (SIGSEGV)
+==109085==  Access not within mapped region at address 0x0
+==109085==    at 0x49B3EAB: std::__cxx11::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >::basic_stringstream(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==109085==    by 0x10DE97: split(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10E02B: HTTP_Request::HTTP_Request(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10E20A: handle_request(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10BE5D: clientProcessing(void*) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x4B4CB42: start_thread (pthread_create.c:442)
+==109085==    by 0x4BDDBB3: clone (clone.S:100)
+==109085==  If you believe this happened as a result of a stack
+==109085==  overflow in your program's main thread (unlikely but
+==109085==  possible), you can try to increase the size of the
+==109085==  main thread stack using the --main-stacksize= flag.
+==109085==  The main thread stack size used in this run was 8388608.
+==109085== 
+==109085== HEAP SUMMARY:
+==109085==     in use at exit: 75,840 bytes in 10 blocks
+==109085==   total heap usage: 10 allocs, 0 frees, 75,840 bytes allocated
+==109085== 
+==109085== Thread 1:
+==109085== 64 bytes in 1 blocks are still reachable in loss record 1 of 6
+==109085==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==109085==    by 0x10D985: __gnu_cxx::new_allocator<int*>::allocate(unsigned long, void const*) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10D5A1: std::allocator_traits<std::allocator<int*> >::allocate(std::allocator<int*>&, unsigned long) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10D1AF: std::_Deque_base<int, std::allocator<int> >::_M_allocate_map(unsigned long) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10CB39: std::_Deque_base<int, std::allocator<int> >::_M_initialize_map(unsigned long) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10C627: std::_Deque_base<int, std::allocator<int> >::_Deque_base() (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10C3FB: std::deque<int, std::allocator<int> >::deque() (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10C46E: std::queue<int, std::deque<int, std::allocator<int> > >::queue<std::deque<int, std::allocator<int> >, void>() (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10C1FA: __static_initialization_and_destruction_0(int, int) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10C237: _GLOBAL__sub_I_clientFD (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x4AE1EBA: call_init (libc-start.c:145)
+==109085==    by 0x4AE1EBA: __libc_start_main@@GLIBC_2.34 (libc-start.c:379)
+==109085==    by 0x10BB64: (below main) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085== 
+==109085== 96 bytes in 1 blocks are still reachable in loss record 2 of 6
+==109085==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==109085==    by 0x10E1FC: handle_request(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10BE5D: clientProcessing(void*) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x4B4CB42: start_thread (pthread_create.c:442)
+==109085==    by 0x4BDDBB3: clone (clone.S:100)
+==109085== 
+==109085== 512 bytes in 1 blocks are still reachable in loss record 3 of 6
+==109085==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==109085==    by 0x10DB33: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10D908: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10D525: std::_Deque_base<int, std::allocator<int> >::_M_allocate_node() (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10D22C: std::_Deque_base<int, std::allocator<int> >::_M_create_nodes(int**, int**) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10CB8F: std::_Deque_base<int, std::allocator<int> >::_M_initialize_map(unsigned long) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10C627: std::_Deque_base<int, std::allocator<int> >::_Deque_base() (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10C3FB: std::deque<int, std::allocator<int> >::deque() (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10C46E: std::queue<int, std::deque<int, std::allocator<int> > >::queue<std::deque<int, std::allocator<int> >, void>() (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10C1FA: __static_initialization_and_destruction_0(int, int) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x10C237: _GLOBAL__sub_I_clientFD (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085==    by 0x4AE1EBA: call_init (libc-start.c:145)
+==109085==    by 0x4AE1EBA: __libc_start_main@@GLIBC_2.34 (libc-start.c:379)
+==109085==    by 0x10BB64: (below main) (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085== 
+==109085== 1,024 bytes in 1 blocks are still reachable in loss record 4 of 6
+==109085==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==109085==    by 0x4B36C23: _IO_file_doallocate (filedoalloc.c:101)
+==109085==    by 0x4B45D5F: _IO_doallocbuf (genops.c:347)
+==109085==    by 0x4B44FDF: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+==109085==    by 0x4B43754: _IO_new_file_xsputn (fileops.c:1243)
+==109085==    by 0x4B43754: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==109085==    by 0x4B2DD28: outstring_func (vfprintf-internal.c:239)
+==109085==    by 0x4B2DD28: __vfprintf_internal (vfprintf-internal.c:1516)
+==109085==    by 0x4B1881E: printf (printf.c:33)
+==109085==    by 0x10C011: main (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085== 
+==109085== 1,440 bytes in 5 blocks are possibly lost in loss record 5 of 6
+==109085==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==109085==    by 0x40147D9: calloc (rtld-malloc.h:44)
+==109085==    by 0x40147D9: allocate_dtv (dl-tls.c:375)
+==109085==    by 0x40147D9: _dl_allocate_tls (dl-tls.c:634)
+==109085==    by 0x4B4D834: allocate_stack (allocatestack.c:430)
+==109085==    by 0x4B4D834: pthread_create@@GLIBC_2.34 (pthread_create.c:647)
+==109085==    by 0x10C0CB: main (in /home/sks-shubham/DECS/ProgAssig4/bootcamp2022-main/application_software/week3/server)
+==109085== 
+==109085== 72,704 bytes in 1 blocks are still reachable in loss record 6 of 6
+==109085==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==109085==    by 0x4918979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==109085==    by 0x400647D: call_init.part.0 (dl-init.c:70)
+==109085==    by 0x4006567: call_init (dl-init.c:33)
+==109085==    by 0x4006567: _dl_init (dl-init.c:117)
+==109085==    by 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+==109085==    by 0x1: ???
+==109085==    by 0x1FFF000246: ???
+==109085==    by 0x1FFF00024F: ???
+==109085== 
+==109085== LEAK SUMMARY:
+==109085==    definitely lost: 0 bytes in 0 blocks
+==109085==    indirectly lost: 0 bytes in 0 blocks
+==109085==      possibly lost: 1,440 bytes in 5 blocks
+==109085==    still reachable: 74,400 bytes in 5 blocks
+==109085==         suppressed: 0 bytes in 0 blocks
+==109085== 
+==109085== For lists of detected and suppressed errors, rerun with: -s
+==109085== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
